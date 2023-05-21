@@ -57,22 +57,22 @@
                             <a class="nav-link" href="{{ route('facturas.index') }}">Facturas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('tiendas.index') }}">Proveedores</a>
+                            <a class="nav-link" href="{{ route('tiendas.index') }}">Tienda</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('bodegas.index') }}">Facturas</a>
+                            <a class="nav-link" href="{{ route('bodegas.index') }}">Bodegas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('estados.index') }}">Proveedores</a>
+                            <a class="nav-link" href="{{ route('estados.index') }}">Estados</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('marcas.index') }}">Facturas</a>
+                            <a class="nav-link" href="{{ route('marcas.index') }}">Marcas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('productos.index') }}">Proveedores</a>
+                            <a class="nav-link" href="{{ route('productos.index') }}">Productos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('inventarios.index') }}">Facturas</a>
+                            <a class="nav-link" href="{{ route('inventarios.index') }}">Inventario</a>
                         </li>
                         <!-- CRUDs Tablas -->
 
