@@ -36,11 +36,11 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Producto Id</th>
+										<th>Producto</th>
 										<th>Cantidad</th>
-										<th>Estado Id</th>
+										<th>Estado</th>
 										<th>Vencimiento</th>
-										<th>Factura Id</th>
+										<th>Folio Factura</th>
 										<th>Precio Venta</th>
 										<th>Precio Balance</th>
 
@@ -52,11 +52,11 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $inventario->producto_id }}</td>
+											<td>{{ $inventario->producto->nombre }}</td>
 											<td>{{ $inventario->cantidad }}</td>
-											<td>{{ $inventario->estado_id }}</td>
+											<td>{{ $inventario->estado->estado }}</td>
 											<td>{{ $inventario->vencimiento }}</td>
-											<td>{{ $inventario->factura_id }}</td>
+											<td>{{ $inventario->factura->folio }}</td>
 											<td>{{ $inventario->precio_venta }}</td>
 											<td>{{ $inventario->precio_balance }}</td>
 

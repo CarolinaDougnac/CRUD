@@ -38,7 +38,7 @@ class InventarioController extends Controller
         $productos = Producto::pluck('nombre','id');
         $estados = Estado::pluck('estado','id');
         $facturas = Factura::pluck('folio','id');
-        return view('inventario.create', compact('inventario'));
+        return view('inventario.create', compact('inventario', 'productos', 'estados', 'facturas'));
     }
 
     /**
@@ -79,8 +79,11 @@ class InventarioController extends Controller
     public function edit($id)
     {
         $inventario = Inventario::find($id);
+        $productos = Producto::pluck('nombre','id');
+        $estados = Estado::pluck('estado','id');
+        $facturas = Factura::pluck('folio','id');
 
-        return view('inventario.edit', compact('inventario'));
+        return view('inventario.edit', compact('inventario', 'productos', 'estados', 'facturas'));
     }
 
     /**

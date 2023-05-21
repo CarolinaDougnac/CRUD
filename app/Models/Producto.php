@@ -84,6 +84,9 @@ class Producto extends Model
     {
         return $this->hasOne('App\Models\Tienda', 'id', 'tienda_id');
     }
-    
+   /** Relacion Muchos a Muchos */
+   public function facturas(){
+    return $this->belongsToMany('App\Models\Factura');
+} 
 
 }

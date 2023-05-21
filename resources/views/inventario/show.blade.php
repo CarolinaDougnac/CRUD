@@ -21,24 +21,24 @@
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Producto Id:</strong>
-                            {{ $inventario->producto_id }}
+                            <strong>Producto:</strong>
+                            {{ $inventario->producto->nombre}}
                         </div>
                         <div class="form-group">
                             <strong>Cantidad:</strong>
                             {{ $inventario->cantidad }}
                         </div>
                         <div class="form-group">
-                            <strong>Estado Id:</strong>
-                            {{ $inventario->estado_id }}
+                            <strong>Estado:</strong>
+                            {{ $inventario->estado->estado }}
                         </div>
                         <div class="form-group">
                             <strong>Vencimiento:</strong>
                             {{ $inventario->vencimiento }}
                         </div>
                         <div class="form-group">
-                            <strong>Factura Id:</strong>
-                            {{ $inventario->factura_id }}
+                            <strong>Folio Factura:</strong>
+                            {{ $inventario->factura->folio }}
                         </div>
                         <div class="form-group">
                             <strong>Precio Venta:</strong>

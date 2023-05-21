@@ -2,8 +2,8 @@
     <div class="box-body">
         
         <div class="form-group">
-            {{ Form::label('producto_id') }}
-            {{ Form::text('producto_id', $inventario->producto_id, ['class' => 'form-control' . ($errors->has('producto_id') ? ' is-invalid' : ''), 'placeholder' => 'Producto Id']) }}
+            {{ Form::label('producto') }}
+            {{ Form::select('producto_id',$productos, $inventario->producto_id, ['class' => 'form-control' . ($errors->has('producto_id') ? ' is-invalid' : ''), 'placeholder' => 'Producto Id']) }}
             {!! $errors->first('producto_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
@@ -12,8 +12,8 @@
             {!! $errors->first('cantidad', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('estado_id') }}
-            {{ Form::text('estado_id', $inventario->estado_id, ['class' => 'form-control' . ($errors->has('estado_id') ? ' is-invalid' : ''), 'placeholder' => 'Estado Id']) }}
+            {{ Form::label('estado del producto') }}
+            {{ Form::select('estado_id',$estados, $inventario->estado_id, ['class' => 'form-control' . ($errors->has('estado_id') ? ' is-invalid' : ''), 'placeholder' => 'Estado Id']) }}
             {!! $errors->first('estado_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
@@ -22,8 +22,8 @@
             {!! $errors->first('vencimiento', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('factura_id') }}
-            {{ Form::text('factura_id', $inventario->factura_id, ['class' => 'form-control' . ($errors->has('factura_id') ? ' is-invalid' : ''), 'placeholder' => 'Factura Id']) }}
+            {{ Form::label('folio') }}
+            {{ Form::select('factura_id',$facturas, $inventario->factura_id, ['class' => 'form-control' . ($errors->has('factura_id') ? ' is-invalid' : ''), 'placeholder' => 'Factura Id']) }}
             {!! $errors->first('factura_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">

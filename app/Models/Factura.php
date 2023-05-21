@@ -64,6 +64,8 @@ class Factura extends Model
     {
         return $this->hasOne('App\Models\Proveedore', 'id', 'proveedore_id');
     }
-    
-
+    /** Relacion Muchos a Muchos */
+    public function productos(){
+        return $this->belongsToMany('App\Models\Producto');
+    }
 }
