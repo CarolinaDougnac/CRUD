@@ -49,12 +49,33 @@
                                 </li>
                             @endif
                         @else
+                        <!-- CRUDs Tablas -->
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('proveedores.index') }}">Proveedores</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('facturas.index') }}">Facturas</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('tiendas.index') }}">Proveedores</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('bodegas.index') }}">Facturas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('estados.index') }}">Proveedores</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('marcas.index') }}">Facturas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('productos.index') }}">Proveedores</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('inventarios.index') }}">Facturas</a>
+                        </li>
+                        <!-- CRUDs Tablas -->
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}

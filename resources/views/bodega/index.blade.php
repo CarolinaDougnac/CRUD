@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Factura
+    Bodega
 @endsection
 
 @section('content')
@@ -13,11 +13,11 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Factura') }}
+                                {{ __('Bodega') }}
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('facturas.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('bodegas.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
                               </div>
@@ -36,26 +36,22 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Proveedore Id</th>
-										<th>Fecha Emision</th>
-										<th>Fecha Reception</th>
+										<th>Nombre</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($facturas as $factura)
+                                    @foreach ($bodegas as $bodega)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $factura->proveedore_id }}</td>
-											<td>{{ $factura->fecha_emision }}</td>
-											<td>{{ $factura->fecha_reception }}</td>
+											<td>{{ $bodega->nombre }}</td>
 
                                             <td>
-                                                <form action="{{ route('facturas.destroy',$factura->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('facturas.show',$factura->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('facturas.edit',$factura->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
+                                                <form action="{{ route('bodegas.destroy',$bodega->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('bodegas.show',$bodega->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('bodegas.edit',$bodega->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
@@ -68,7 +64,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $facturas->links() !!}
+                {!! $bodegas->links() !!}
             </div>
         </div>
     </div>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Factura
+    Inventario
 @endsection
 
 @section('content')
@@ -13,11 +13,11 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Factura') }}
+                                {{ __('Inventario') }}
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('facturas.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('inventarios.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
                               </div>
@@ -36,26 +36,34 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Proveedore Id</th>
-										<th>Fecha Emision</th>
-										<th>Fecha Reception</th>
+										<th>Producto Id</th>
+										<th>Cantidad</th>
+										<th>Estado Id</th>
+										<th>Vencimiento</th>
+										<th>Factura Id</th>
+										<th>Precio Venta</th>
+										<th>Precio Balance</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($facturas as $factura)
+                                    @foreach ($inventarios as $inventario)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $factura->proveedore_id }}</td>
-											<td>{{ $factura->fecha_emision }}</td>
-											<td>{{ $factura->fecha_reception }}</td>
+											<td>{{ $inventario->producto_id }}</td>
+											<td>{{ $inventario->cantidad }}</td>
+											<td>{{ $inventario->estado_id }}</td>
+											<td>{{ $inventario->vencimiento }}</td>
+											<td>{{ $inventario->factura_id }}</td>
+											<td>{{ $inventario->precio_venta }}</td>
+											<td>{{ $inventario->precio_balance }}</td>
 
                                             <td>
-                                                <form action="{{ route('facturas.destroy',$factura->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('facturas.show',$factura->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('facturas.edit',$factura->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
+                                                <form action="{{ route('inventarios.destroy',$inventario->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('inventarios.show',$inventario->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('inventarios.edit',$inventario->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
@@ -68,7 +76,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $facturas->links() !!}
+                {!! $inventarios->links() !!}
             </div>
         </div>
     </div>

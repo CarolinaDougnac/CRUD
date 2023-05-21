@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Factura;
+use App\Models\Bodega;
 use Illuminate\Http\Request;
 
 /**
- * Class FacturaController
+ * Class BodegaController
  * @package App\Http\Controllers
  */
-class FacturaController extends Controller
+class BodegaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +18,10 @@ class FacturaController extends Controller
      */
     public function index()
     {
-        $facturas = Factura::paginate();
+        $bodegas = Bodega::paginate();
 
-        return view('factura.index', compact('facturas'))
-            ->with('i', (request()->input('page', 1) - 1) * $facturas->perPage());
+        return view('bodega.index', compact('bodegas'))
+            ->with('i', (request()->input('page', 1) - 1) * $bodegas->perPage());
     }
 
     /**
@@ -31,8 +31,8 @@ class FacturaController extends Controller
      */
     public function create()
     {
-        $factura = new Factura();
-        return view('factura.create', compact('factura'));
+        $bodega = new Bodega();
+        return view('bodega.create', compact('bodega'));
     }
 
     /**
@@ -43,12 +43,12 @@ class FacturaController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Factura::$rules);
+        request()->validate(Bodega::$rules);
 
-        $factura = Factura::create($request->all());
+        $bodega = Bodega::create($request->all());
 
-        return redirect()->route('facturas.index')
-            ->with('success', 'Factura created successfully.');
+        return redirect()->route('bodegas.index')
+            ->with('success', 'Bodega created successfully.');
     }
 
     /**
@@ -59,9 +59,9 @@ class FacturaController extends Controller
      */
     public function show($id)
     {
-        $factura = Factura::find($id);
+        $bodega = Bodega::find($id);
 
-        return view('factura.show', compact('factura'));
+        return view('bodega.show', compact('bodega'));
     }
 
     /**
@@ -72,26 +72,26 @@ class FacturaController extends Controller
      */
     public function edit($id)
     {
-        $factura = Factura::find($id);
+        $bodega = Bodega::find($id);
 
-        return view('factura.edit', compact('factura'));
+        return view('bodega.edit', compact('bodega'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  Factura $factura
+     * @param  Bodega $bodega
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Factura $factura)
+    public function update(Request $request, Bodega $bodega)
     {
-        request()->validate(Factura::$rules);
+        request()->validate(Bodega::$rules);
 
-        $factura->update($request->all());
+        $bodega->update($request->all());
 
-        return redirect()->route('facturas.index')
-            ->with('success', 'Factura updated successfully');
+        return redirect()->route('bodegas.index')
+            ->with('success', 'Bodega updated successfully');
     }
 
     /**
@@ -101,9 +101,9 @@ class FacturaController extends Controller
      */
     public function destroy($id)
     {
-        $factura = Factura::find($id)->delete();
+        $bodega = Bodega::find($id)->delete();
 
-        return redirect()->route('facturas.index')
-            ->with('success', 'Factura deleted successfully');
+        return redirect()->route('bodegas.index')
+            ->with('success', 'Bodega deleted successfully');
     }
 }

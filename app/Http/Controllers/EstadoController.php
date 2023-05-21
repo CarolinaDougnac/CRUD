@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Factura;
+use App\Models\Estado;
 use Illuminate\Http\Request;
 
 /**
- * Class FacturaController
+ * Class EstadoController
  * @package App\Http\Controllers
  */
-class FacturaController extends Controller
+class EstadoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +18,10 @@ class FacturaController extends Controller
      */
     public function index()
     {
-        $facturas = Factura::paginate();
+        $estados = Estado::paginate();
 
-        return view('factura.index', compact('facturas'))
-            ->with('i', (request()->input('page', 1) - 1) * $facturas->perPage());
+        return view('estado.index', compact('estados'))
+            ->with('i', (request()->input('page', 1) - 1) * $estados->perPage());
     }
 
     /**
@@ -31,8 +31,8 @@ class FacturaController extends Controller
      */
     public function create()
     {
-        $factura = new Factura();
-        return view('factura.create', compact('factura'));
+        $estado = new Estado();
+        return view('estado.create', compact('estado'));
     }
 
     /**
@@ -43,12 +43,12 @@ class FacturaController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Factura::$rules);
+        request()->validate(Estado::$rules);
 
-        $factura = Factura::create($request->all());
+        $estado = Estado::create($request->all());
 
-        return redirect()->route('facturas.index')
-            ->with('success', 'Factura created successfully.');
+        return redirect()->route('estados.index')
+            ->with('success', 'Estado created successfully.');
     }
 
     /**
@@ -59,9 +59,9 @@ class FacturaController extends Controller
      */
     public function show($id)
     {
-        $factura = Factura::find($id);
+        $estado = Estado::find($id);
 
-        return view('factura.show', compact('factura'));
+        return view('estado.show', compact('estado'));
     }
 
     /**
@@ -72,26 +72,26 @@ class FacturaController extends Controller
      */
     public function edit($id)
     {
-        $factura = Factura::find($id);
+        $estado = Estado::find($id);
 
-        return view('factura.edit', compact('factura'));
+        return view('estado.edit', compact('estado'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  Factura $factura
+     * @param  Estado $estado
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Factura $factura)
+    public function update(Request $request, Estado $estado)
     {
-        request()->validate(Factura::$rules);
+        request()->validate(Estado::$rules);
 
-        $factura->update($request->all());
+        $estado->update($request->all());
 
-        return redirect()->route('facturas.index')
-            ->with('success', 'Factura updated successfully');
+        return redirect()->route('estados.index')
+            ->with('success', 'Estado updated successfully');
     }
 
     /**
@@ -101,9 +101,9 @@ class FacturaController extends Controller
      */
     public function destroy($id)
     {
-        $factura = Factura::find($id)->delete();
+        $estado = Estado::find($id)->delete();
 
-        return redirect()->route('facturas.index')
-            ->with('success', 'Factura deleted successfully');
+        return redirect()->route('estados.index')
+            ->with('success', 'Estado deleted successfully');
     }
 }

@@ -5,19 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Proveedore
+ * Class Bodega
  *
  * @property $id
  * @property $nombre
  * @property $created_at
  * @property $updated_at
  *
- * @property Factura[] $facturas
- * @property Marca[] $marcas
+ * @property Producto[] $productos
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
-class Proveedore extends Model
+class Bodega extends Model
 {
     
     static $rules = [
@@ -37,17 +36,9 @@ class Proveedore extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function facturas()
+    public function productos()
     {
-        return $this->hasMany('App\Models\Factura', 'proveedore_id', 'id');
-    }
-    
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function marcas()
-    {
-        return $this->hasMany('App\Models\Marca', 'proveedore_id', 'id');
+        return $this->hasMany('App\Models\Producto', 'bodega_id', 'id');
     }
     
 

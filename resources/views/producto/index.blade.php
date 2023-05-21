@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Factura
+    Producto
 @endsection
 
 @section('content')
@@ -13,11 +13,11 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Factura') }}
+                                {{ __('Producto') }}
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('facturas.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('productos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
                               </div>
@@ -36,26 +36,30 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Proveedore Id</th>
-										<th>Fecha Emision</th>
-										<th>Fecha Reception</th>
+										<th>Nombre</th>
+										<th>Cod Barra</th>
+										<th>Marca Id</th>
+										<th>Tienda Id</th>
+										<th>Bodega Id</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($facturas as $factura)
+                                    @foreach ($productos as $producto)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $factura->proveedore_id }}</td>
-											<td>{{ $factura->fecha_emision }}</td>
-											<td>{{ $factura->fecha_reception }}</td>
+											<td>{{ $producto->nombre }}</td>
+											<td>{{ $producto->cod_barra }}</td>
+											<td>{{ $producto->marca_id }}</td>
+											<td>{{ $producto->tienda_id }}</td>
+											<td>{{ $producto->bodega_id }}</td>
 
                                             <td>
-                                                <form action="{{ route('facturas.destroy',$factura->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('facturas.show',$factura->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('facturas.edit',$factura->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
+                                                <form action="{{ route('productos.destroy',$producto->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('productos.show',$producto->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('productos.edit',$producto->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
@@ -68,7 +72,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $facturas->links() !!}
+                {!! $productos->links() !!}
             </div>
         </div>
     </div>

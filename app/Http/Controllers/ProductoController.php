@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Factura;
+use App\Models\Producto;
 use Illuminate\Http\Request;
 
 /**
- * Class FacturaController
+ * Class ProductoController
  * @package App\Http\Controllers
  */
-class FacturaController extends Controller
+class ProductoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +18,10 @@ class FacturaController extends Controller
      */
     public function index()
     {
-        $facturas = Factura::paginate();
+        $productos = Producto::paginate();
 
-        return view('factura.index', compact('facturas'))
-            ->with('i', (request()->input('page', 1) - 1) * $facturas->perPage());
+        return view('producto.index', compact('productos'))
+            ->with('i', (request()->input('page', 1) - 1) * $productos->perPage());
     }
 
     /**
@@ -31,8 +31,8 @@ class FacturaController extends Controller
      */
     public function create()
     {
-        $factura = new Factura();
-        return view('factura.create', compact('factura'));
+        $producto = new Producto();
+        return view('producto.create', compact('producto'));
     }
 
     /**
@@ -43,12 +43,12 @@ class FacturaController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Factura::$rules);
+        request()->validate(Producto::$rules);
 
-        $factura = Factura::create($request->all());
+        $producto = Producto::create($request->all());
 
-        return redirect()->route('facturas.index')
-            ->with('success', 'Factura created successfully.');
+        return redirect()->route('productos.index')
+            ->with('success', 'Producto created successfully.');
     }
 
     /**
@@ -59,9 +59,9 @@ class FacturaController extends Controller
      */
     public function show($id)
     {
-        $factura = Factura::find($id);
+        $producto = Producto::find($id);
 
-        return view('factura.show', compact('factura'));
+        return view('producto.show', compact('producto'));
     }
 
     /**
@@ -72,26 +72,26 @@ class FacturaController extends Controller
      */
     public function edit($id)
     {
-        $factura = Factura::find($id);
+        $producto = Producto::find($id);
 
-        return view('factura.edit', compact('factura'));
+        return view('producto.edit', compact('producto'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  Factura $factura
+     * @param  Producto $producto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Factura $factura)
+    public function update(Request $request, Producto $producto)
     {
-        request()->validate(Factura::$rules);
+        request()->validate(Producto::$rules);
 
-        $factura->update($request->all());
+        $producto->update($request->all());
 
-        return redirect()->route('facturas.index')
-            ->with('success', 'Factura updated successfully');
+        return redirect()->route('productos.index')
+            ->with('success', 'Producto updated successfully');
     }
 
     /**
@@ -101,9 +101,9 @@ class FacturaController extends Controller
      */
     public function destroy($id)
     {
-        $factura = Factura::find($id)->delete();
+        $producto = Producto::find($id)->delete();
 
-        return redirect()->route('facturas.index')
-            ->with('success', 'Factura deleted successfully');
+        return redirect()->route('productos.index')
+            ->with('success', 'Producto deleted successfully');
     }
 }

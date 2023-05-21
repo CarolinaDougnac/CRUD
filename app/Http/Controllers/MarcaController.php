@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Factura;
+use App\Models\Marca;
 use Illuminate\Http\Request;
 
 /**
- * Class FacturaController
+ * Class MarcaController
  * @package App\Http\Controllers
  */
-class FacturaController extends Controller
+class MarcaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +18,10 @@ class FacturaController extends Controller
      */
     public function index()
     {
-        $facturas = Factura::paginate();
+        $marcas = Marca::paginate();
 
-        return view('factura.index', compact('facturas'))
-            ->with('i', (request()->input('page', 1) - 1) * $facturas->perPage());
+        return view('marca.index', compact('marcas'))
+            ->with('i', (request()->input('page', 1) - 1) * $marcas->perPage());
     }
 
     /**
@@ -31,8 +31,8 @@ class FacturaController extends Controller
      */
     public function create()
     {
-        $factura = new Factura();
-        return view('factura.create', compact('factura'));
+        $marca = new Marca();
+        return view('marca.create', compact('marca'));
     }
 
     /**
@@ -43,12 +43,12 @@ class FacturaController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Factura::$rules);
+        request()->validate(Marca::$rules);
 
-        $factura = Factura::create($request->all());
+        $marca = Marca::create($request->all());
 
-        return redirect()->route('facturas.index')
-            ->with('success', 'Factura created successfully.');
+        return redirect()->route('marcas.index')
+            ->with('success', 'Marca created successfully.');
     }
 
     /**
@@ -59,9 +59,9 @@ class FacturaController extends Controller
      */
     public function show($id)
     {
-        $factura = Factura::find($id);
+        $marca = Marca::find($id);
 
-        return view('factura.show', compact('factura'));
+        return view('marca.show', compact('marca'));
     }
 
     /**
@@ -72,26 +72,26 @@ class FacturaController extends Controller
      */
     public function edit($id)
     {
-        $factura = Factura::find($id);
+        $marca = Marca::find($id);
 
-        return view('factura.edit', compact('factura'));
+        return view('marca.edit', compact('marca'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  Factura $factura
+     * @param  Marca $marca
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Factura $factura)
+    public function update(Request $request, Marca $marca)
     {
-        request()->validate(Factura::$rules);
+        request()->validate(Marca::$rules);
 
-        $factura->update($request->all());
+        $marca->update($request->all());
 
-        return redirect()->route('facturas.index')
-            ->with('success', 'Factura updated successfully');
+        return redirect()->route('marcas.index')
+            ->with('success', 'Marca updated successfully');
     }
 
     /**
@@ -101,9 +101,9 @@ class FacturaController extends Controller
      */
     public function destroy($id)
     {
-        $factura = Factura::find($id)->delete();
+        $marca = Marca::find($id)->delete();
 
-        return redirect()->route('facturas.index')
-            ->with('success', 'Factura deleted successfully');
+        return redirect()->route('marcas.index')
+            ->with('success', 'Marca deleted successfully');
     }
 }

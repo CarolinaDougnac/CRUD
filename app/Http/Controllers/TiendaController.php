@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Factura;
+use App\Models\Tienda;
 use Illuminate\Http\Request;
 
 /**
- * Class FacturaController
+ * Class TiendaController
  * @package App\Http\Controllers
  */
-class FacturaController extends Controller
+class TiendaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +18,10 @@ class FacturaController extends Controller
      */
     public function index()
     {
-        $facturas = Factura::paginate();
+        $tiendas = Tienda::paginate();
 
-        return view('factura.index', compact('facturas'))
-            ->with('i', (request()->input('page', 1) - 1) * $facturas->perPage());
+        return view('tienda.index', compact('tiendas'))
+            ->with('i', (request()->input('page', 1) - 1) * $tiendas->perPage());
     }
 
     /**
@@ -31,8 +31,8 @@ class FacturaController extends Controller
      */
     public function create()
     {
-        $factura = new Factura();
-        return view('factura.create', compact('factura'));
+        $tienda = new Tienda();
+        return view('tienda.create', compact('tienda'));
     }
 
     /**
@@ -43,12 +43,12 @@ class FacturaController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Factura::$rules);
+        request()->validate(Tienda::$rules);
 
-        $factura = Factura::create($request->all());
+        $tienda = Tienda::create($request->all());
 
-        return redirect()->route('facturas.index')
-            ->with('success', 'Factura created successfully.');
+        return redirect()->route('tiendas.index')
+            ->with('success', 'Tienda created successfully.');
     }
 
     /**
@@ -59,9 +59,9 @@ class FacturaController extends Controller
      */
     public function show($id)
     {
-        $factura = Factura::find($id);
+        $tienda = Tienda::find($id);
 
-        return view('factura.show', compact('factura'));
+        return view('tienda.show', compact('tienda'));
     }
 
     /**
@@ -72,26 +72,26 @@ class FacturaController extends Controller
      */
     public function edit($id)
     {
-        $factura = Factura::find($id);
+        $tienda = Tienda::find($id);
 
-        return view('factura.edit', compact('factura'));
+        return view('tienda.edit', compact('tienda'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  Factura $factura
+     * @param  Tienda $tienda
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Factura $factura)
+    public function update(Request $request, Tienda $tienda)
     {
-        request()->validate(Factura::$rules);
+        request()->validate(Tienda::$rules);
 
-        $factura->update($request->all());
+        $tienda->update($request->all());
 
-        return redirect()->route('facturas.index')
-            ->with('success', 'Factura updated successfully');
+        return redirect()->route('tiendas.index')
+            ->with('success', 'Tienda updated successfully');
     }
 
     /**
@@ -101,9 +101,9 @@ class FacturaController extends Controller
      */
     public function destroy($id)
     {
-        $factura = Factura::find($id)->delete();
+        $tienda = Tienda::find($id)->delete();
 
-        return redirect()->route('facturas.index')
-            ->with('success', 'Factura deleted successfully');
+        return redirect()->route('tiendas.index')
+            ->with('success', 'Tienda deleted successfully');
     }
 }

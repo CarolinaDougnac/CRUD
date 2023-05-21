@@ -5,28 +5,25 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Factura
+ * Class Marca
  *
  * @property $id
+ * @property $nombre
  * @property $proveedore_id
- * @property $fecha_emision
- * @property $fecha_reception
  * @property $created_at
  * @property $updated_at
  *
- * @property FacturaProducto[] $facturaProductos
- * @property Inventario[] $inventarios
+ * @property Producto[] $productos
  * @property Proveedore $proveedore
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
-class Factura extends Model
+class Marca extends Model
 {
     
     static $rules = [
+		'nombre' => 'required',
 		'proveedore_id' => 'required',
-		'fecha_emision' => 'required',
-		'fecha_reception' => 'required',
     ];
 
     protected $perPage = 20;
@@ -36,23 +33,15 @@ class Factura extends Model
      *
      * @var array
      */
-    protected $fillable = ['proveedore_id','fecha_emision','fecha_reception'];
+    protected $fillable = ['nombre','proveedore_id'];
 
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function facturaProductos()
+    public function productos()
     {
-        return $this->hasMany('App\Models\FacturaProducto', 'factura_id', 'id');
-    }
-    
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function inventarios()
-    {
-        return $this->hasMany('App\Models\Inventario', 'factura_id', 'id');
+        return $this->hasMany('App\Models\Producto', 'marca_id', 'id');
     }
     
     /**
