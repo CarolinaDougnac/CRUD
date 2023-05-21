@@ -7,8 +7,8 @@
             {!! $errors->first('nombre', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('proveedore_id') }}
-            {{ Form::text('proveedore_id', $marca->proveedore_id, ['class' => 'form-control' . ($errors->has('proveedore_id') ? ' is-invalid' : ''), 'placeholder' => 'Proveedore Id']) }}
+            {{ Form::label('proveedor') }}
+            {{ Form::select('proveedore_id',$proveedores, $marca->proveedore_id, ['class' => 'form-control' . ($errors->has('proveedore_id') ? ' is-invalid' : ''), 'placeholder' => 'Proveedore Id']) }}
             {!! $errors->first('proveedore_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
 

@@ -36,9 +36,11 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Proveedore Id</th>
+										<th>Folio</th>
+                                        <th>Proveedor</th>
 										<th>Fecha Emision</th>
 										<th>Fecha Reception</th>
+										
 
                                         <th></th>
                                     </tr>
@@ -48,9 +50,11 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $factura->proveedore_id }}</td>
+											<td>{{ $factura->folio }}</td>
+                                            <td>{{ $factura->proveedore->nombre }}</td>
 											<td>{{ $factura->fecha_emision }}</td>
 											<td>{{ $factura->fecha_reception }}</td>
+											
 
                                             <td>
                                                 <form action="{{ route('facturas.destroy',$factura->id) }}" method="POST">

@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bodega;
+use App\Models\Marca;
 use App\Models\Producto;
+use App\Models\Tienda;
 use Illuminate\Http\Request;
 
 /**
@@ -32,7 +35,11 @@ class ProductoController extends Controller
     public function create()
     {
         $producto = new Producto();
-        return view('producto.create', compact('producto'));
+        $marcas = Marca::pluck('nombre','id');
+        $tiendas = Tienda::pluck('mueble','nivel','posicion','id');
+        $bodegas = Bodega::pluck('nombre','id');
+
+        return view('producto.create', compact('producto', 'marcas', 'tiendas','bodegas'));
     }
 
     /**
@@ -73,8 +80,11 @@ class ProductoController extends Controller
     public function edit($id)
     {
         $producto = Producto::find($id);
+        $marcas = Marca::pluck('nombre','id');
+        $tiendas = Tienda::pluck('mueble','nivel','posicion','id');
+        $bodegas = Bodega::pluck('nombre','id');
 
-        return view('producto.edit', compact('producto'));
+        return view('producto.edit', compact('producto', 'marcas', 'tiendas','bodegas'));
     }
 
     /**

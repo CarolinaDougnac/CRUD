@@ -48,7 +48,7 @@
                                             <td>{{ ++$i }}</td>
                                             
 											<td>{{ $marca->nombre }}</td>
-											<td>{{ $marca->proveedore_id }}</td>
+											<td>{{ $marca->proveedore->nombre }}</td>
 
                                             <td>
                                                 <form action="{{ route('marcas.destroy',$marca->id) }}" method="POST">

@@ -21,8 +21,8 @@
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Proveedore Id:</strong>
-                            {{ $factura->proveedore_id }}
+                            <strong>Proveedor:</strong>
+                            {{ $factura->proveedore->nombre }}
                         </div>
                         <div class="form-group">
                             <strong>Fecha Emision:</strong>
@@ -31,6 +31,10 @@
                         <div class="form-group">
                             <strong>Fecha Reception:</strong>
                             {{ $factura->fecha_reception }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Folio:</strong>
+                            {{ $factura->folio }}
                         </div>
 
                     </div>

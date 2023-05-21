@@ -38,9 +38,9 @@
                                         
 										<th>Nombre</th>
 										<th>Cod Barra</th>
-										<th>Marca Id</th>
+										<th>Marca</th>
 										<th>Tienda Id</th>
-										<th>Bodega Id</th>
+										<th>Bodega</th>
 
                                         <th></th>
                                     </tr>
@@ -52,9 +52,9 @@
                                             
 											<td>{{ $producto->nombre }}</td>
 											<td>{{ $producto->cod_barra }}</td>
-											<td>{{ $producto->marca_id }}</td>
+											<td>{{ $producto->marca->nombre }}</td>
 											<td>{{ $producto->tienda_id }}</td>
-											<td>{{ $producto->bodega_id }}</td>
+											<td>{{ $producto->bodega->nombre }}</td>
 
                                             <td>
                                                 <form action="{{ route('productos.destroy',$producto->id) }}" method="POST">

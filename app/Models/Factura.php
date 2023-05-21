@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property $fecha_reception
  * @property $created_at
  * @property $updated_at
+ * @property $folio
  *
  * @property FacturaProducto[] $facturaProductos
  * @property Inventario[] $inventarios
@@ -27,6 +28,7 @@ class Factura extends Model
 		'proveedore_id' => 'required',
 		'fecha_emision' => 'required',
 		'fecha_reception' => 'required',
+		'folio' => 'required',
     ];
 
     protected $perPage = 20;
@@ -36,7 +38,7 @@ class Factura extends Model
      *
      * @var array
      */
-    protected $fillable = ['proveedore_id','fecha_emision','fecha_reception'];
+    protected $fillable = ['proveedore_id','fecha_emision','fecha_reception','folio'];
 
 
     /**

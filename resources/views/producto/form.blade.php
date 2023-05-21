@@ -12,18 +12,18 @@
             {!! $errors->first('cod_barra', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('marca_id') }}
-            {{ Form::text('marca_id', $producto->marca_id, ['class' => 'form-control' . ($errors->has('marca_id') ? ' is-invalid' : ''), 'placeholder' => 'Marca Id']) }}
+            {{ Form::label('marca') }}
+            {{ Form::select('marca_id',$marcas, $producto->marca_id, ['class' => 'form-control' . ($errors->has('marca_id') ? ' is-invalid' : ''), 'placeholder' => 'Marca Id']) }}
             {!! $errors->first('marca_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('tienda_id') }}
+            {{ Form::label('tienda') }}
             {{ Form::text('tienda_id', $producto->tienda_id, ['class' => 'form-control' . ($errors->has('tienda_id') ? ' is-invalid' : ''), 'placeholder' => 'Tienda Id']) }}
             {!! $errors->first('tienda_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('bodega_id') }}
-            {{ Form::text('bodega_id', $producto->bodega_id, ['class' => 'form-control' . ($errors->has('bodega_id') ? ' is-invalid' : ''), 'placeholder' => 'Bodega Id']) }}
+            {{ Form::label('bodega') }}
+            {{ Form::select('bodega_id',$bodegas, $producto->bodega_id, ['class' => 'form-control' . ($errors->has('bodega_id') ? ' is-invalid' : ''), 'placeholder' => 'Bodega Id']) }}
             {!! $errors->first('bodega_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
 

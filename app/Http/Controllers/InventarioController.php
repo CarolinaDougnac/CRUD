@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Estado;
+use App\Models\Factura;
 use App\Models\Inventario;
+use App\Models\Producto;
 use Illuminate\Http\Request;
 
 /**
@@ -32,6 +35,9 @@ class InventarioController extends Controller
     public function create()
     {
         $inventario = new Inventario();
+        $productos = Producto::pluck('nombre','id');
+        $estados = Estado::pluck('estado','id');
+        $facturas = Factura::pluck('folio','id');
         return view('inventario.create', compact('inventario'));
     }
 

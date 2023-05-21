@@ -2,8 +2,13 @@
     <div class="box-body">
         
         <div class="form-group">
-            {{ Form::label('proveedore_id') }}
-            {{ Form::text('proveedore_id', $factura->proveedore_id, ['class' => 'form-control' . ($errors->has('proveedore_id') ? ' is-invalid' : ''), 'placeholder' => 'Proveedore Id']) }}
+            {{ Form::label('folio') }}
+            {{ Form::text('folio', $factura->folio, ['class' => 'form-control' . ($errors->has('folio') ? ' is-invalid' : ''), 'placeholder' => 'Folio']) }}
+            {!! $errors->first('folio', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
+        <div class="form-group">
+            {{ Form::label('proveedor') }}
+            {{ Form::select('proveedore_id',$proveedores, $factura->proveedore_id, ['class' => 'form-control' . ($errors->has('proveedore_id') ? ' is-invalid' : ''), 'placeholder' => 'Proveedore Id']) }}
             {!! $errors->first('proveedore_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
@@ -16,6 +21,7 @@
             {{ Form::text('fecha_reception', $factura->fecha_reception, ['class' => 'form-control' . ($errors->has('fecha_reception') ? ' is-invalid' : ''), 'placeholder' => 'Fecha Reception']) }}
             {!! $errors->first('fecha_reception', '<div class="invalid-feedback">:message</div>') !!}
         </div>
+        
 
     </div>
     <div class="box-footer mt20">
