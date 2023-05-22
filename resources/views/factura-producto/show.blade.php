@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 
 @section('template_title')
     {{ $facturaProducto->name ?? "{{ __('Show') Factura Producto" }}
