@@ -29,3 +29,4 @@ Route::resource('marcas', App\Http\Controllers\MarcaController::class);
 Route::resource('productos', App\Http\Controllers\ProductoController::class);
 Route::resource('facturaProductos', App\Http\Controllers\FacturaProductoController::class);
 Route::resource('inventarios', App\Http\Controllers\InventarioController::class);
+Route::resource('recepcions', App\Http\Controllers\RecepcionController::class);

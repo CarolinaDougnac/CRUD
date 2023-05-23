@@ -313,7 +313,7 @@ return [
         ],
         [
             'text'        => ' Ingreso Factura',
-            'url'         => 'admin/pages',
+            'url'         => 'recepcions',
             'icon'        => 'fas fa-fw fa-ligth fa-file-invoice',
             'label'       => 4,
             'label_color' => 'success',
@@ -344,24 +344,24 @@ return [
         [
             'text' => ' Productos',
             'url'  => '#',
-            'icon' => 'far fa-fw fa-solid fa-product-hunt',
+            'icon' => 'far fa-fw fa-boxes',
             'submenu' => [
                 [
                     'text' => ' Productos',
                     'url'  => 'productos',
-                    'icon' => 'fas fa-fw fa-roduct-hunt',
+                    'icon' => 'fas fa-fw fa-box',
                 ],
                 [
                     'text' => ' Estado',
                     'url'  => 'estados',
-                    'icon' => 'fas fa-fw fa-circle-check',
+                    'icon' => 'fas fa-fw fa-check-square',
                 ],
             ]
         ],
         [
             'text' => ' Lugares',
             'url'  => '#',
-            'icon' => 'fas fa-fw fa-location-dot',
+            'icon' => 'fas fa-fw fa-pin-map',
             'submenu' => [
                 [
                     'text' => ' Bodega',

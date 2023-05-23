@@ -8,7 +8,6 @@
 
 @section('content')
     <p>Has ingresado al administrador de Bodega</p>
-    
       
 @endsection
 
