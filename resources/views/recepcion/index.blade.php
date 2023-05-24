@@ -18,7 +18,7 @@
                     <div class="col">
                         <div class="form-group">
                             {{ Form::label('proveedor') }}
-                            {{ Form::select('proveedore_id',$proveedores, $recepcions->proveedore_id, ['class' => 'form-control' . ($errors->has('proveedore_id') ? ' is-invalid' : ''), 'placeholder' => 'Proveedore Id']) }}
+                            {{ Form::text('Proveedor') }}
                             {!! $errors->first('proveedore_id', '<div class="invalid-feedback">:message</div>') !!}
                         </div>
                         <div class="form-group">

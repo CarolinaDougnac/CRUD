@@ -1,22 +1,23 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    <h1>Nuevo ingreso de Factura</h1>
+    {{ __('Update') }} Factura
 @endsection
 
 @section('content')
     <section class="content container-fluid">
-        <div class="row">
+        <div class="">
             <div class="col-md-12">
 
                 @includeif('partials.errors')
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title"><h1>Nueva Factura</h1></span>
+                        <span class="card-title">{{ __('Update') }} Factura</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('facturas.store') }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('facturas.update', $factura->id) }}"  role="form" enctype="multipart/form-data">
+                            {{ method_field('PATCH') }}
                             @csrf
 
                             @include('factura.form')

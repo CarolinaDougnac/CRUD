@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Factura;
 use App\Models\Proveedore;
+use App\Models\Producto;
 use Illuminate\Http\Request;
 
 /**
@@ -20,8 +21,9 @@ class FacturaController extends Controller
     public function index()
     {
         $facturas = Factura::paginate();
+        $data=['facturas'=>$facturas,];
 
-        return view('factura.index', compact('facturas'))
+        return view('factura.index', compact('facturas'), $data)
             ->with('i', (request()->input('page', 1) - 1) * $facturas->perPage());
     }
 

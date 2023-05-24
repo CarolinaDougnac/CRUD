@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    <h1>Nuevo ingreso de Factura</h1>
+    {{ __('Create') }} Factura
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title"><h1>Nueva Factura</h1></span>
+                        <span class="card-title">{{ __('Create') }} Factura</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('facturas.store') }}"  role="form" enctype="multipart/form-data">
